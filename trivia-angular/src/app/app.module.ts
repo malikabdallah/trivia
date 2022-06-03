@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './components/form/form.component';
 import { GameComponent } from './components/game/game.component';
-import { UnescapePipe } from './pipr/UnescapePipe.pipe';
+import { UnescapePipe } from './pipe/UnescapePipe.pipe';
 
 @NgModule({
   declarations: [
