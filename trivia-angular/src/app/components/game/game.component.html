@@ -1,14 +1,26 @@
-<p>number of question {{nbQuestion}} </p>
-<p>question number {{cpt+1}}</p>
-<p>question :{{question.question}}</p> 
-<ul *ngFor="let response of responsePossible" >
-    <li>
-        <div (click)="onClick(response)" style="border: 1px solid black; width: 150px;">
-            {{response}}
-        </div>
-    </li>
-  </ul>
+<div class="quiz-container" id="quiz">
 
-<div *ngIf="displayResult">
-    Votre score est de {{score}}% 
-</div>  
+    <div class="quiz-header">
+      <h2 id="question">question number {{cpt+1}} :{{question.question | unescape}}</h2>
+
+
+      <ul *ngFor="let response of responsePossible" >
+        <li>
+            <input (click)="onClick(response)" type="radio" name="answer" id="a" class="answer">
+            <label for="a" id="a_text"> {{response | unescape}}</label>
+          </li>
+        
+      </ul>
+    
+      
+     
+    </div>
+
+    <div class="result" *ngIf="displayResult">
+       <h1> your score is {{score}}% </h1> 
+        <button (click)="replay()">replay</button>
+    </div>  
+
+</div>
+
+

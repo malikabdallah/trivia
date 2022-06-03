@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './components/form/form.component';
 import { GameComponent } from './components/game/game.component';
+import { UnescapePipe } from './pipr/UnescapePipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    GameComponent
+    GameComponent,
+    UnescapePipe
   ],
   imports: [
     BrowserModule,

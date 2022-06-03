@@ -51,10 +51,11 @@ export class FormComponent implements OnInit {
     this.service.getQuestions(s).subscribe(
       data=>{
         localStorage.setItem("questions",JSON.stringify(data));
+        this.router.navigate(["game"]);
       }
     )
 
-    this.router.navigate(["game"]);
+    
     
     
   

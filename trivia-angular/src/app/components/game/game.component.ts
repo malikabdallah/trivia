@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import arrayShuffle from 'array-shuffle';
 import { Question, Questions } from 'src/app/model/Questions.model';
 
@@ -18,7 +19,7 @@ export class GameComponent implements OnInit {
   public nbRightResponse=0;
   public displayResult=false;
   public score:number;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.questions=JSON.parse(localStorage.getItem('questions')!);
@@ -60,5 +61,10 @@ export class GameComponent implements OnInit {
 
 
     }
+  } 
+
+
+  replay(){
+    this.router.navigate([""]);
   } 
 }
