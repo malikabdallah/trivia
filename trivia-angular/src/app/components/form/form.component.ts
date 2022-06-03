@@ -17,6 +17,7 @@ export class FormComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+    localStorage.clear();
     this.form = this.formBuilder.group({
       trivia_amount: '10',
       trivia_category: ['any'],
@@ -49,7 +50,6 @@ export class FormComponent implements OnInit {
 
     this.service.getQuestions(s).subscribe(
       data=>{
-        console.log("data="+data);
         localStorage.setItem("questions",JSON.stringify(data));
       }
     )

@@ -16,7 +16,6 @@ export class QuestionService {
 
 
   public getQuestions(option:string):Observable<Questions>{
-    alert("url ="+this.baseUrl+option)
     return this.http.get<Questions>(this.baseUrl+option);
   }
 }

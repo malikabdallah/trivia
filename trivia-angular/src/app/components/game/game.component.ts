@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
   public cpt=0;
   public questions:Questions;
   public responsePossible:string[]=[];
-  public nbWrongResponse=0;
+  public nbRightResponse=0;
   public displayResult=false;
   public score:number;
   constructor() { }
@@ -24,7 +24,6 @@ export class GameComponent implements OnInit {
     this.questions=JSON.parse(localStorage.getItem('questions')!);
     this.nbQuestion=this.questions.results.length;
     this.question=this.questions.results[this.cpt];
-    console.log("questions : "+this.questions.results);
     for(let i=0;i<this.question.incorrect_answers.length;i++){
       
       this.responsePossible.push(this.question.incorrect_answers[i]);
@@ -36,8 +35,8 @@ export class GameComponent implements OnInit {
   }
 
   onClick(answer: string) {
-    if(answer !== this.question.correct_answer){
-      this.nbWrongResponse++;
+    if(answer == this.question.correct_answer){
+      this.nbRightResponse++;
     }
 
     this.cpt++;
@@ -55,8 +54,10 @@ export class GameComponent implements OnInit {
 
     }else{
       this.displayResult=true;
-      alert(this.nbWrongResponse+" de mauvaise reponse");
-      this.score=(this.nbWrongResponse/this.nbQuestion)*100;
+      
+      this.score=(this.nbRightResponse/this.nbQuestion)*100;
+      localStorage.clear();
+
 
     }
   } 
