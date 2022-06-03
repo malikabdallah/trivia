@@ -1,0 +1,14 @@
+<p>number of question {{nbQuestion}} </p>
+<p>question number {{cpt+1}}</p>
+<p>question :{{question.question}}</p> 
+<ul *ngFor="let response of responsePossible" >
+    <li>
+        <div (click)="onClick(response)" style="border: 1px solid black; width: 150px;">
+            {{response}}
+        </div>
+    </li>
+  </ul>
+
+<div *ngIf="displayResult">
+    Votre score est de {{score}}% 
+</div>  
