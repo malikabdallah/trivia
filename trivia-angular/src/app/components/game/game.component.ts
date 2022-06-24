@@ -54,6 +54,7 @@ export class GameComponent implements OnInit {
       this.responsePossible= arrayShuffle(this.responsePossible);
 
     }else{
+      this.cpt--;
       this.displayResult=true;
       
       this.score=(this.nbRightResponse/this.nbQuestion)*100;
